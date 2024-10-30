@@ -1,32 +1,38 @@
-//your JS code here. If required.
-window onloading=function() {
-	const outputElement=document.getElementByid("output");
-const loadingRow=document.createElement("tr");
-	const loadingcell=document.createElement("td");
-	loadingcell.setAttribute("colspan","2");
-	loadingcell.textcontent"Loading...";
-	loadingrow.appendchild(loadingcell);
-	outputElement.appendchild(loadingRow);
+window.onload = function () {
+  const outputElement = document.getElementById("output");
 
-	const startTime=Date.now();
-	function createpromise(i){
-		const delay=(math.random()*2000)+1000;
-		const promisestartTime=Date.now();
+  // Insert the loading row
+  const loadingRow = document.createElement("tr");
+  const loadingCell = document.createElement("td");
+  loadingCell.setAttribute("colspan", "2");
+  loadingCell.textContent = "Loading...";
+  loadingRow.appendChild(loadingCell);
+  outputElement.appendChild(loadingRow);
 
-		return new promise((resolve)=>{
-			setTimeout(()=>{
-				const timetak0en=(Date.now()-promisestartTime)
-				resolve({
-					name:"promise"+i,timetaken:timetaken.tofixed(3)});
-				
-				},delay);
-			
-			})
-		}
-	const promises=[];
-	for (let i=1;i<=3;i++){
-		promise.push(createpromise(i)){
-Promise.all(promises).then((results) => {
+  // Record the overall start time
+  const startTime = Date.now();
+
+  // Function to create a promise
+  function createPromise(i) {
+    const delay = Math.floor(Math.random() * 2000) + 1000; // Between 1 and 3 seconds
+    const promiseStartTime = Date.now();
+
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const timeTaken = (Date.now() - promiseStartTime) / 1000; // In seconds
+        resolve({ name: "Promise " + i, timeTaken: timeTaken.toFixed(3) });
+      }, delay);
+    });
+  }
+
+  // Create 3 promises
+  const promises = [];
+  for (let i = 1; i <= 3; i++) {
+    promises.push(createPromise(i));
+  }
+
+  // Wait for all promises to resolve
+  Promise.all(promises).then((results) => {
     const endTime = Date.now();
     const totalTime = (endTime - startTime) / 1000; // In seconds
 

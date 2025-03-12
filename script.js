@@ -1,16 +1,19 @@
-
 window.onload = function (){
     const outputElement=document.getElementById("output");
 // insert loading cell
     const loadingrow=document.createElement("tr"); 
+    loadingrow.setAttribute("id", "loading");
     const loadingcell=document.createElement("td"); 
 loadingcell.setAttribute("colspan","2");
 loadingcell.textContent="loading...";
-let newRow = document.createElement("tr"); // Create a new row
-newRow.appendChild(loadingcell); // Add the cell to the row
 
-let tablebody = document.querySelector("tbody"); // Select the tbody
-tablebody.appendChild(newRow); 
+loadingrow.appendChild(loadingcell);
+outputElement.appendChild(loadingrow);
+// let newRow = document.createElement("tr"); // Create a new row
+// newRow.appendChild(loadingcell); // Add the cell to the row
+
+// let tablebody = document.querySelector("tbody"); // Select the tbody
+// tablebody.appendChild(newRow); 
 const startTime = Date.now();
 
 function createPromise(i){
@@ -32,8 +35,8 @@ Promise.all(promises).then((results)=>
 {
     const endTime=Date.now();
 const totalTime=(endTime-startTime)/1000;
-if(outputElement.contains(newRow)){
-    outputElement.removeChild(newRow);
+if(outputElement.contains(loadingrow)){
+    outputElement.removeChild(loadingrow);
 }
 results.sort((a, b) => a.name.localeCompare(b.name));
 

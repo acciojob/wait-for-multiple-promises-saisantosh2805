@@ -1,21 +1,18 @@
 window.onload = function (){
     const outputElement=document.getElementById("output");
 // insert loading cell
-    const loadingrow=document.createElement("tr"); 
-    loadingrow.setAttribute("id", "loading");
-    const loadingcell=document.createElement("td"); 
-loadingcell.setAttribute("colspan","2");
-loadingcell.textContent="loading...";
-
-loadingrow.appendChild(loadingcell);
-outputElement.appendChild(loadingrow);
+    // const loadingrow=document.createElement("tr"); 
+    // loadingrow.setAttribute("id", "loading");
+ //  const loadingcell=document.createElement("td"); 
+// loadingcell.setAttribute("colspan","2");
+// loadingcell.textContent="loading...";
+// loadingrow.appendChild(loadingcell);
+// outputElement.appendChild(loadingrow);
 // let newRow = document.createElement("tr"); // Create a new row
 // newRow.appendChild(loadingcell); // Add the cell to the row
-
 // let tablebody = document.querySelector("tbody"); // Select the tbody
 // tablebody.appendChild(newRow); 
 const startTime = Date.now();
-
 function createPromise(i){
     const delay =Math.floor(Math.random()*2000)+1000;
 const promiseStartTime=Date.now();
@@ -23,7 +20,6 @@ return new Promise((resolve) => {
     setTimeout(()=>{
         const timetaken=(Date.now() - promiseStartTime)/1000;
         resolve({name:"promise"+i,timeTaken:timetaken.toFixed(3)});
-
     },delay);
 });
 }

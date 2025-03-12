@@ -1,38 +1,27 @@
-*{
- background-color: white;   
-}
-body{
-    font-family: Arial, sans-serif;
+body {
+  font-family: Arial, sans-serif;
   background-color: #f8f9fa;
 }
-table{
-background-color: black;
-width: 300px;
-height:10px;
-}
-thead{
-    width: 50px;
-    padding:100px;
-}
-button{
-    background-color: aqua;
-    padding: 100px;
-    width: 10px;
-}
+
 .container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  h2 {
-    text-align: center;
-    color: #333;
-  }
-  td {
-    text-align: center;
-  }
-  
-  .loading {
-    font-style: italic;
-    color: gray;
-  }
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.table {
+  margin-top: 20px;
+}
+
+td {
+  text-align: center;
+}
+
+.loading {
+  font-style: italic;
+  color: gray;
+}
